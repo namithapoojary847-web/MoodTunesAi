@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MoodTunes AI | Music That Understands Your Mood</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/welcome.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Animated Background -->
+    <canvas id="waveCanvas"></canvas>
+
+    <div id="particles"></div>
+
+    <div class="cursor-glow"></div>
+
+    <!-- Navigation -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+
+                <i class="fa-solid fa-wave-square"></i>
+
+                <span>MoodTunes</span>
+
+            </div>
+
+            <ul class="nav-links">
+
+                <li><a href="#">Home</a></li>
+
+                <li><a href="#">Features</a></li>
+
+                <li><a href="#">How It Works</a></li>
+
+                <li><a href="#">About</a></li>
+
+            </ul>
+
+            <a href="/app" class="nav-btn">
+
+                Launch MoodTunes
+
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <div class="hero-left">
+
+            <div class="badge">
+
+                <i class="fa-solid fa-sparkles"></i>
+
+                AI POWERED EMOTION RECOGNITION
+
+            </div>
+
+            <h1>
+
+                Music that
+
+                <br>
+
+                understands
+
+                <br>
+
+                <span>your mood</span>
+
+            </h1>
+
+            <p>
+
+                MoodTunes detects your emotions using AI facial
+                recognition and instantly recommends songs
+                that match your feelings.
+
+            </p>
+
+            <div class="buttons">
+
+                <a href="/app" class="primary-btn">
+
+                    Get Started
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+                <a href="#features" class="secondary-btn">
+
+                    Learn More
+
+                </a>
+
+            </div>
+
+            <div class="users">
+
+                <div class="avatars">
+
+                    <img src="https://i.pravatar.cc/50?img=1">
+
+                    <img src="https://i.pravatar.cc/50?img=5">
+
+                    <img src="https://i.pravatar.cc/50?img=8">
+
+                    <img src="https://i.pravatar.cc/50?img=10">
+
+                </div>
+
+                <span>
+
+                    Trusted by music lovers worldwide
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="hero-right">
+
+    <div class="ai-orb">
+
+        <div class="orb-ring"></div>
+
+        <div class="orb-core">
+
+            <i class="fa-solid fa-brain"></i>
+
+        </div>
+
+        <div class="orb-particles"></div>
+
+    </div>
+
+</div>
+
+    </section>
+
+
+
+    <!-- Floating Music Card -->
+
+    <div class="music-card">
+
+        <div class="album">
+
+            <i class="fa-solid fa-music"></i>
+
+        </div>
+
+        <div class="song">
+
+            <h3>Now Playing</h3>
+
+            <p>Emotion Based Playlist</p>
+
+        </div>
+
+        <button>
+
+            <i class="fa-solid fa-play"></i>
+
+        </button>
+
+    </div>
+
+
+
+    <!-- Scroll Indicator -->
+
+    <div class="scroll-indicator">
+
+        <div class="mouse">
+
+            <div class="wheel"></div>
+
+        </div>
+
+        <p>Scroll to Explore</p>
+
+    </div>
+
+    <!-- AI Globe Carousel -->
+
+<section class="gallery-section">
+
+    <h2>
+        Explore The <span>MoodTunes Universe</span>
+    </h2>
+
+    <p>
+        Discover emotions, music and AI technology through our visual experience.
+    </p>
+
+
+    <div class="globe">
+
+        <div class="carousel">
+
+            <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d">
+
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f">
+
+            <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81">
+
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
+
+            <img src="https://images.unsplash.com/photo-1516321165247-4aa89a48be28">
+
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+    <!-- Floating Notes -->
+
+    <div class="music-notes">
+
+        <i class="fa-solid fa-music note1"></i>
+
+        <i class="fa-solid fa-music note2"></i>
+
+        <i class="fa-solid fa-music note3"></i>
+
+        <i class="fa-solid fa-music note4"></i>
+
+    </div>
+
+    <!-- Music Party Footer -->
+
+<!-- Modern AI SaaS Footer -->
+
+<footer class="modern-footer">
+
+    <div class="footer-wrapper">
+
+
+        <div class="footer-section brand">
+
+            <div class="logo">
+
+                <i class="fa-solid fa-wave-square"></i>
+
+                <span>MoodTunes AI</span>
+
+            </div>
+
+
+            <p>
+                Experience music powered by artificial intelligence.
+                MoodTunes creates personalized playlists that match
+                your emotions.
+            </p>
+
+
+            <div class="footer-social">
+
+                <a href="#">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="footer-section">
+
+            <h3>Product</h3>
+
+            <a href="#">AI Emotion Detection</a>
+            <a href="#">Smart Playlist</a>
+            <a href="#">Music Library</a>
+            <a href="#">Updates</a>
+
+        </div>
+
+
+
+        <div class="footer-section">
+
+            <h3>Explore</h3>
+
+            <a href="#">About</a>
+            <a href="#">How It Works</a>
+            <a href="#">Technology</a>
+            <a href="#">Contact</a>
+
+        </div>
+
+
+
+        <div class="footer-section">
+
+            <h3>Join The Future</h3>
+
+            <p>
+                Subscribe for AI music updates.
+            </p>
+
+
+            <div class="footer-input">
+
+                <input 
+                type="email" 
+                placeholder="Your email">
+
+
+                <button>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+    <div class="footer-line"></div>
+
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 MoodTunes AI. All rights reserved.
+        </span>
+
+
+        <div>
+
+            <a href="#">Privacy Policy</a>
+
+            <a href="#">Terms</a>
+
+        </div>
+
+
+    </div>
+
+
+</footer>
+
+
+
+    <script src="{{ url_for('static', filename='js/welcome.js') }}"></script>
+
+</body>
+
+</html>

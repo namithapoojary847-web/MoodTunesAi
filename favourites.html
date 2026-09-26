@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Favourites - MoodTunes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">🎵</div>
+                <div class="brand-title">MoodTunes</div>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link"><span class="nav-icon">📷</span> Mood Scanner</a></li>
+                <li><a href="/analytics" class="nav-link"><span class="nav-icon">📊</span> Mood Analytics</a></li>
+                <li><a href="/favourites" class="nav-link active"><span class="nav-icon">❤️</span> Favourite Songs</a></li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div class="user-card">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-info">
+                        <div class="user-name" id="sidebarUserName">Guest User</div>
+                        <div class="user-role">Saved Library</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Favourites View -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="page-title">
+                    <h1>Your Favourite Songs</h1>
+                    <p>Collection of songs saved from your personalized emotion recommendations</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-icon" id="btnThemeToggle" title="Toggle Theme">🌙</button>
+                </div>
+            </header>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"><span>❤️</span> Saved Tracks Library</div>
+                </div>
+
+                <div class="track-list" id="favouritesList">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', loadFavourites);
+
+        async function loadFavourites() {
+            const listContainer = document.getElementById('favouritesList');
+            try {
+                const response = await fetch('/api/favourites');
+                const data = await response.json();
+
+                if (data.success && data.favourites.length > 0) {
+                    listContainer.innerHTML = '';
+                    data.favourites.forEach(track => {
+                        const card = document.createElement('div');
+                        card.className = 'track-card';
+                        card.innerHTML = `
+                            <img src="${track.album_art || 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300'}" alt="${track.title}" class="track-img" />
+                            <div class="track-details">
+                                <div class="track-title">${track.title}</div>
+                                <div class="track-artist">${track.artist} • Mood: <span style="color:var(--accent-cyan); font-weight:600;">${track.mood}</span></div>
+                            </div>
+                            <div class="track-actions">
+                                <a href="https://www.youtube.com/watch?v=${track.youtube_id}" target="_blank" class="btn-play" style="text-decoration:none;">▶</a>
+                            </div>
+                        `;
+                        listContainer.appendChild(card);
+                    });
+                } else {
+                    listContainer.innerHTML = `
+                        <div style="text-align: center; padding: 3rem 1rem; color: var(--text-muted);">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">💔</div>
+                            <h3>No Saved Favourite Songs Yet</h3>
+                            <p style="margin-top: 0.5rem;">Go to the Mood Scanner, scan your facial emotion, and click the ❤️ icon on any song to save it here!</p>
+                            <a href="/" class="btn-primary" style="display: inline-flex; margin-top: 1.25rem; text-decoration: none;">Go to Mood Scanner</a>
+                        </div>
+                    `;
+                }
+            } catch (err) {
+                console.error("Error loading favourites:", err);
+            }
+        }
+    </script>
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+</body>
+</html>

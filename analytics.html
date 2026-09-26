@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Insights - MoodTunes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">🎵</div>
+                <div class="brand-title">MoodTunes</div>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link"><span class="nav-icon">📷</span> Mood Scanner</a></li>
+                <li><a href="/analytics" class="nav-link active"><span class="nav-icon">📊</span> Mood Analytics</a></li>
+                <li><a href="/favourites" class="nav-link"><span class="nav-icon">❤️</span> Favourite Songs</a></li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div class="user-card">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-info">
+                        <div class="user-name" id="sidebarUserName">Guest User</div>
+                        <div class="user-role">Analytics Mode</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Analytics View -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="page-title">
+                    <h1>Mood Insights & Music Analytics</h1>
+                    <p>Track your emotion history, mood distribution, and discovery trends over time</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-icon" id="btnThemeToggle" title="Toggle Theme">🌙</button>
+                </div>
+            </header>
+
+            <!-- Stat Summary Cards -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="card" style="display: flex; align-items: center; gap: 1.25rem;">
+                    <div style="width: 54px; height: 54px; border-radius: var(--radius-md); background: rgba(124, 58, 237, 0.2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">
+                        📸
+                    </div>
+                    <div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">TOTAL DETECTIONS</div>
+                        <div id="totalDetectionsCount" style="font-size: 1.8rem; font-weight: 800;">0</div>
+                    </div>
+                </div>
+
+                <div class="card" style="display: flex; align-items: center; gap: 1.25rem;">
+                    <div style="width: 54px; height: 54px; border-radius: var(--radius-md); background: rgba(6, 182, 212, 0.2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">
+                        👑
+                    </div>
+                    <div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">DOMINANT MOOD</div>
+                        <div id="dominantMoodLabel" style="font-size: 1.8rem; font-weight: 800; color: #06b6d4;">Neutral</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Grid -->
+            <div class="dashboard-grid" style="margin-bottom: 2rem;">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title"><span>🍩</span> Mood Share Distribution</div>
+                    </div>
+                    <div class="chart-box">
+                        <canvas id="moodPieChartCanvas"></canvas>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title"><span>📈</span> Weekly Emotion Trends</div>
+                    </div>
+                    <div class="chart-box">
+                        <canvas id="weeklyTrendChartCanvas"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emotion Logs History Table -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"><span>📜</span> Recent Detection History</div>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid var(--glass-border); color: var(--text-secondary); font-size: 0.85rem;">
+                                <th style="padding: 0.75rem 1rem;">EMOTION</th>
+                                <th style="padding: 0.75rem 1rem;">CONFIDENCE</th>
+                                <th style="padding: 0.75rem 1rem;">TIMESTAMP</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentHistoryTableBody">
+                            <!-- Rendered by analytics.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/analytics.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+</body>
+</html>

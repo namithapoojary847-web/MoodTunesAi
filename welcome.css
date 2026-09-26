@@ -1,0 +1,2575 @@
+/* =====================================
+   MOODTUNES AI PREMIUM LANDING PAGE
+   PART 1
+===================================== */
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+body{
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    background:
+    radial-gradient(circle at top left,#00f5ff33,transparent 35%),
+    radial-gradient(circle at bottom right,#8b5cff44,transparent 35%),
+    #050510;
+
+    color:white;
+
+}
+
+
+
+/* ===============================
+   CANVAS BACKGROUND
+================================ */
+
+
+#waveCanvas{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    z-index:-3;
+
+}
+
+
+
+#particles{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-2;
+
+}
+
+
+
+
+
+/* ===============================
+   CURSOR GLOW
+================================ */
+
+
+.cursor-glow{
+
+    width:250px;
+    height:250px;
+
+    position:fixed;
+
+    pointer-events:none;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    #00f5ff55,
+    transparent 70%);
+
+
+    transform:
+    translate(-50%,-50%);
+
+
+    filter:blur(20px);
+
+    z-index:5;
+
+}
+
+
+
+
+/* ===============================
+   NAVBAR
+================================ */
+
+
+header{
+
+    padding:25px 8%;
+
+}
+
+
+
+.navbar{
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:30px;
+
+    font-weight:800;
+
+}
+
+
+
+.logo i{
+
+    color:#00f5ff;
+
+    filter:
+    drop-shadow(0 0 15px #00f5ff);
+
+}
+
+
+
+.logo span{
+
+    background:
+    linear-gradient(
+    90deg,
+    #00f5ff,
+    #8b5cff
+    );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+}
+
+
+
+
+.nav-links{
+
+    display:flex;
+
+    gap:35px;
+
+    list-style:none;
+
+}
+
+
+
+.nav-links a{
+
+
+    color:#ccc;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+
+
+.nav-links a:hover{
+
+    color:#00f5ff;
+
+}
+
+
+
+.nav-btn{
+
+
+    padding:13px 28px;
+
+    border-radius:30px;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:
+    linear-gradient(
+    90deg,
+    #00f5ff,
+    #8b5cff
+    );
+
+
+    box-shadow:
+    0 0 25px #00f5ff66;
+
+
+    transition:.4s;
+
+}
+
+
+
+.nav-btn:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+
+
+/* ===============================
+   HERO SECTION
+================================ */
+
+
+.hero{
+
+
+    min-height:80vh;
+
+    padding:60px 8%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:60px;
+
+
+}
+
+
+
+.hero-left{
+
+    max-width:650px;
+
+}
+
+
+
+.badge{
+
+
+    display:inline-flex;
+
+    gap:10px;
+
+    align-items:center;
+
+
+    padding:10px 20px;
+
+
+    border-radius:30px;
+
+
+    background:
+    rgba(255,255,255,.08);
+
+
+    border:
+    1px solid rgba(255,255,255,.15);
+
+
+    backdrop-filter:blur(20px);
+
+
+    color:#00f5ff;
+
+
+    font-size:13px;
+
+    letter-spacing:1px;
+
+}
+
+
+
+
+
+.hero h1{
+
+
+    margin-top:30px;
+
+    font-size:70px;
+
+    line-height:1.1;
+
+    font-weight:800;
+
+
+}
+
+
+
+.hero h1 span{
+
+
+    background:
+    linear-gradient(
+    90deg,
+    #00f5ff,
+    #ff4fd8
+    );
+
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+
+    text-shadow:
+    0 0 30px #00f5ff66;
+
+
+}
+
+
+
+
+.hero p{
+
+
+    margin-top:25px;
+
+
+    color:#c7c7d8;
+
+
+    font-size:18px;
+
+    line-height:1.8;
+
+
+    max-width:600px;
+
+}
+
+
+
+
+
+
+/* ===============================
+   HERO IMAGE
+================================ */
+/* ===============================
+   AI ORB ANIMATION
+================================ */
+
+
+.hero-right{
+
+    position:relative;
+
+    width:420px;
+    height:420px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+}
+
+
+
+.ai-orb{
+
+    width:260px;
+    height:260px;
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    animation:floating 5s infinite ease-in-out;
+
+}
+
+
+
+.orb-core{
+
+    width:140px;
+    height:140px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    font-size:55px;
+
+    color:#00f5ff;
+
+
+    background:
+
+    radial-gradient(
+    circle,
+    #00f5ff55,
+    #8b5cff33,
+    transparent
+    );
+
+
+    box-shadow:
+
+    0 0 50px #00f5ff,
+    0 0 100px #8b5cff;
+
+
+    backdrop-filter:blur(20px);
+
+}
+
+
+
+.orb-ring{
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+
+    border-radius:50%;
+
+
+    border:
+
+    2px solid #00f5ff88;
+
+
+    animation:
+
+    rotateRing 8s linear infinite;
+
+}
+
+
+
+.orb-ring::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:20px;
+    height:20px;
+
+    background:#00f5ff;
+
+    border-radius:50%;
+
+    top:0;
+
+    left:50%;
+
+    box-shadow:
+
+    0 0 20px #00f5ff;
+
+}
+
+
+
+@keyframes rotateRing{
+
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+
+.orb-particles{
+
+    position:absolute;
+
+    inset:-40px;
+
+
+    border-radius:50%;
+
+
+    background:
+
+    radial-gradient(circle,
+    #00f5ff 2px,
+    transparent 3px);
+
+
+    background-size:40px 40px;
+
+
+    animation:
+
+    particleMove 10s linear infinite;
+
+    opacity:.5;
+
+}
+
+
+
+@keyframes particleMove{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+
+@keyframes floating{
+
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+
+    50%{
+
+        transform:translateY(-25px);
+
+    }
+
+}
+/* =====================================
+   MOODTUNES AI PREMIUM LANDING PAGE
+   PART 2
+===================================== */
+
+
+/* ===============================
+   BUTTON SECTION
+================================ */
+
+
+.buttons{
+
+    display:flex;
+
+    gap:25px;
+
+    margin-top:35px;
+
+}
+
+
+
+.primary-btn,
+.secondary-btn{
+
+
+    padding:15px 35px;
+
+    border-radius:40px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    transition:.4s;
+
+}
+
+
+
+/* Main Button */
+
+
+.primary-btn{
+
+
+    color:white;
+
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #00f5ff,
+    #8b5cff
+    );
+
+
+    box-shadow:
+
+    0 0 20px #00f5ff66;
+
+
+}
+
+
+
+.primary-btn:hover{
+
+
+    transform:
+
+    translateY(-8px);
+
+
+    box-shadow:
+
+    0 0 40px #00f5ff;
+
+
+}
+
+
+
+/* Secondary Button */
+
+
+.secondary-btn{
+
+
+    color:white;
+
+
+    border:
+
+    1px solid rgba(255,255,255,.3);
+
+
+    background:
+
+    rgba(255,255,255,.05);
+
+
+    backdrop-filter:
+
+    blur(15px);
+
+
+}
+
+
+
+.secondary-btn:hover{
+
+
+    border-color:#00f5ff;
+
+
+    color:#00f5ff;
+
+
+    transform:
+
+    translateY(-5px);
+
+
+}
+
+
+
+
+/* ===============================
+   TRUSTED USERS
+================================ */
+
+
+.users{
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-top:45px;
+
+
+}
+
+
+
+.avatars{
+
+
+    display:flex;
+
+
+}
+
+
+
+.avatars img{
+
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+
+    border:
+
+    3px solid #050510;
+
+
+    margin-left:-12px;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.avatars img:first-child{
+
+    margin-left:0;
+
+}
+
+
+
+.avatars img:hover{
+
+
+    transform:
+
+    translateY(-8px)
+    scale(1.1);
+
+
+}
+
+
+
+.users span{
+
+
+    color:#aaa;
+
+
+    font-size:14px;
+
+
+}
+
+
+
+
+
+/* ===============================
+   MUSIC CARD
+================================ */
+
+
+.music-card{
+
+
+    position:fixed;
+
+
+    right:60px;
+
+    bottom:60px;
+
+
+    width:330px;
+
+
+    padding:20px;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:18px;
+
+
+
+    background:
+
+    rgba(255,255,255,.08);
+
+
+
+    backdrop-filter:
+
+    blur(20px);
+
+
+
+    border:
+
+    1px solid rgba(255,255,255,.15);
+
+
+
+    border-radius:25px;
+
+
+
+    box-shadow:
+
+
+    0 0 30px rgba(0,245,255,.2);
+
+
+
+    animation:
+
+    cardFloat 4s infinite ease-in-out;
+
+
+
+}
+
+
+
+.album{
+
+
+    width:60px;
+
+    height:60px;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+    justify-content:center;
+
+
+
+    border-radius:20px;
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #00f5ff,
+    #8b5cff
+    );
+
+
+    font-size:25px;
+
+
+}
+
+
+
+.song{
+
+
+    flex:1;
+
+
+}
+
+
+
+.song h3{
+
+
+    font-size:15px;
+
+
+}
+
+
+
+.song p{
+
+
+    color:#aaa;
+
+
+    font-size:13px;
+
+
+}
+
+
+
+.music-card button{
+
+
+    width:45px;
+
+    height:45px;
+
+
+    border-radius:50%;
+
+
+    border:none;
+
+
+    cursor:pointer;
+
+
+    color:white;
+
+
+    background:
+
+    #00f5ff;
+
+
+    box-shadow:
+
+
+    0 0 20px #00f5ff;
+
+
+}
+
+
+
+.music-card button:hover{
+
+
+    transform:
+
+    scale(1.15);
+
+
+}
+
+
+
+@keyframes cardFloat{
+
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+
+    50%{
+
+        transform:translateY(-15px);
+
+    }
+
+
+}
+
+
+
+
+
+/* ===============================
+   SCROLL INDICATOR
+================================ */
+
+
+.scroll-indicator{
+
+
+    position:absolute;
+
+
+    bottom:35px;
+
+
+    left:50%;
+
+
+    transform:translateX(-50%);
+
+
+    text-align:center;
+
+
+    color:#aaa;
+
+
+}
+
+
+
+.mouse{
+
+
+    width:28px;
+
+    height:45px;
+
+
+    border:
+
+    2px solid white;
+
+
+    border-radius:20px;
+
+
+    margin:auto;
+
+
+    position:relative;
+
+
+}
+
+
+
+.wheel{
+
+
+    width:6px;
+
+    height:10px;
+
+
+    background:#00f5ff;
+
+
+    border-radius:10px;
+
+
+    position:absolute;
+
+
+    top:8px;
+
+
+    left:50%;
+
+
+    transform:translateX(-50%);
+
+
+
+    animation:
+
+    scrollMove 2s infinite;
+
+
+}
+
+
+
+@keyframes scrollMove{
+
+
+    from{
+
+        top:8px;
+
+    }
+
+
+    to{
+
+        top:25px;
+
+        opacity:0;
+
+    }
+
+}
+
+
+
+
+.scroll-indicator p{
+
+
+    margin-top:10px;
+
+
+    font-size:13px;
+
+
+}
+
+
+
+
+
+/* ===============================
+   FLOATING MUSIC NOTES
+================================ */
+
+
+.music-notes i{
+
+
+    position:absolute;
+
+
+    color:#00f5ff;
+
+
+    opacity:.6;
+
+
+    animation:
+
+    noteFloat 8s infinite;
+
+
+}
+
+
+
+.note1{
+
+    top:20%;
+
+    left:10%;
+
+}
+
+
+.note2{
+
+    top:40%;
+
+    right:15%;
+
+    animation-delay:2s!important;
+
+}
+
+
+.note3{
+
+    bottom:20%;
+
+    left:20%;
+
+    animation-delay:4s!important;
+
+}
+
+
+.note4{
+
+    bottom:30%;
+
+    right:30%;
+
+    animation-delay:6s!important;
+
+}
+
+
+
+@keyframes noteFloat{
+
+
+    0%{
+
+        transform:
+
+        translateY(0)
+        rotate(0deg);
+
+
+    }
+
+
+    50%{
+
+
+        transform:
+
+        translateY(-80px)
+        rotate(180deg);
+
+
+    }
+
+
+    100%{
+
+
+        transform:
+
+        translateY(0)
+        rotate(360deg);
+
+
+    }
+
+
+}
+
+
+
+
+
+/* ===============================
+   RESPONSIVE DESIGN
+================================ */
+
+
+@media(max-width:1000px){
+
+
+    .hero{
+
+
+        flex-direction:column;
+
+        text-align:center;
+
+
+    }
+
+
+    .hero h1{
+
+        font-size:50px;
+
+    }
+
+
+    .hero-right{
+
+
+         transform:scale(.8);
+
+
+    }
+
+
+    .buttons,
+    .users{
+
+
+        justify-content:center;
+
+    }
+
+
+    .nav-links{
+
+        display:none;
+
+    }
+
+
+    .music-card{
+
+
+        right:20px;
+
+        left:20px;
+
+        width:auto;
+
+    }
+
+
+}
+
+
+
+@media(max-width:600px){
+
+
+    .hero h1{
+
+
+        font-size:40px;
+
+
+    }
+
+
+
+    .hero p{
+
+
+        font-size:15px;
+
+
+    }
+
+
+
+    .buttons{
+
+
+        flex-direction:column;
+
+
+    }
+
+
+
+    .primary-btn,
+    .secondary-btn{
+
+
+        justify-content:center;
+
+
+    }
+
+
+}
+
+/* ===============================
+   3D GLOBE CAROUSEL
+================================ */
+
+
+.gallery-section{
+
+    min-height:700px;
+
+    text-align:center;
+
+    padding:100px 8%;
+
+}
+
+
+
+.gallery-section h2{
+
+    font-size:45px;
+
+}
+
+
+
+.gallery-section h2 span{
+
+    color:#00f5ff;
+
+}
+
+
+
+.gallery-section p{
+
+    color:#aaa;
+
+    margin-top:15px;
+
+}
+
+
+
+.globe{
+
+    width:400px;
+
+    height:400px;
+
+    margin:100px auto;
+
+    perspective:1000px;
+
+}
+
+
+
+.carousel{
+
+    width:100%;
+
+    height:100%;
+
+    position:relative;
+
+    transform-style:preserve-3d;
+
+    animation:globeRotate 20s linear infinite;
+
+}
+
+
+
+.carousel img{
+
+    position:absolute;
+
+    width:130px;
+
+    height:130px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+
+    border:2px solid #00f5ff;
+
+
+    box-shadow:
+
+    0 0 25px #00f5ff88;
+
+}
+
+
+
+/* image positions */
+
+
+.carousel img:nth-child(1){
+
+    transform:rotateY(0deg) translateZ(200px);
+
+}
+
+
+.carousel img:nth-child(2){
+
+    transform:rotateY(60deg) translateZ(200px);
+
+}
+
+
+.carousel img:nth-child(3){
+
+    transform:rotateY(120deg) translateZ(200px);
+
+}
+
+
+.carousel img:nth-child(4){
+
+    transform:rotateY(180deg) translateZ(200px);
+
+}
+
+
+.carousel img:nth-child(5){
+
+    transform:rotateY(240deg) translateZ(200px);
+
+}
+
+
+.carousel img:nth-child(6){
+
+    transform:rotateY(300deg) translateZ(200px);
+
+}
+
+
+
+
+@keyframes globeRotate{
+
+
+    from{
+
+        transform:rotateY(0deg);
+
+    }
+
+
+    to{
+
+        transform:rotateY(360deg);
+
+    }
+
+
+}
+
+
+
+.globe:hover .carousel{
+
+    animation-play-state:paused;
+
+}
+
+/* ===============================
+   MUSIC PARTY FOOTER
+================================ */
+
+
+/* =====================================
+   FUTURISTIC AI MUSIC PARTY FOOTER
+===================================== */
+
+
+.party-footer{
+
+    height:550px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+
+    background:
+
+    radial-gradient(circle at center,
+    #00f5ff22,
+    transparent 35%),
+
+    radial-gradient(circle at left,
+    #8b5cff33,
+    transparent 30%),
+
+
+    #050510;
+
+
+}
+
+
+
+/* Background glow */
+
+.party-footer::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+
+    height:700px;
+
+    border-radius:50%;
+
+
+    background:
+
+    radial-gradient(circle,
+    #00f5ff33,
+    transparent 65%);
+
+
+    animation:
+
+    stageGlow 5s infinite;
+
+
+}
+
+
+
+@keyframes stageGlow{
+
+    50%{
+
+        transform:scale(1.3);
+
+        opacity:.5;
+
+    }
+
+}
+
+
+
+
+
+/* ===============================
+   CENTER CONTENT
+================================ */
+
+
+.footer-content{
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+
+
+.footer-content h2{
+
+    font-size:48px;
+
+    font-weight:800;
+
+}
+
+
+
+.footer-content h2 span{
+
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #00f5ff,
+    #ff4fd8
+    );
+
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+}
+
+
+
+.footer-content p{
+
+    color:#aaa;
+
+    margin-top:20px;
+
+}
+
+
+
+.footer-links{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:35px;
+
+    margin-top:35px;
+
+}
+
+
+
+.footer-links a{
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+
+
+.footer-links a:hover{
+
+    color:#00f5ff;
+
+}
+
+
+
+
+
+/* ===============================
+   MICROPHONE
+================================ */
+
+
+.mic-stage{
+
+    position:absolute;
+
+    left:10%;
+
+    top:30%;
+
+
+}
+
+
+
+.mic-stage i{
+
+    font-size:90px;
+
+    color:#00f5ff;
+
+
+    filter:
+
+    drop-shadow(0 0 30px #00f5ff);
+
+
+    animation:
+
+    micMove 3s infinite ease-in-out;
+
+
+}
+
+
+
+@keyframes micMove{
+
+    50%{
+
+        transform:translateY(-25px)
+        rotate(5deg);
+
+    }
+
+}
+
+
+
+
+
+/* ===============================
+   SPEAKER
+================================ */
+
+
+.stage-speaker{
+
+
+    position:absolute;
+
+    left:25%;
+
+    bottom:90px;
+
+
+}
+
+
+
+.stage-speaker i{
+
+
+    font-size:70px;
+
+    color:#8b5cff;
+
+
+    filter:
+
+    drop-shadow(0 0 30px #8b5cff);
+
+
+    animation:
+
+    speakerPulse 1s infinite;
+
+
+}
+
+
+
+@keyframes speakerPulse{
+
+
+    50%{
+
+        transform:scale(1.15);
+
+    }
+
+}
+
+
+
+
+
+/* ===============================
+   DJ CONSOLE
+================================ */
+
+
+.dj-console{
+
+
+    position:absolute;
+
+
+    bottom:70px;
+
+
+    left:50%;
+
+
+    transform:translateX(-50%);
+
+
+    width:220px;
+
+    height:70px;
+
+
+    border-radius:25px;
+
+
+    background:
+
+    rgba(255,255,255,.08);
+
+
+    border:
+
+    1px solid #00f5ff55;
+
+
+    backdrop-filter:blur(20px);
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    gap:12px;
+
+
+}
+
+
+
+.dj-console span{
+
+
+    width:10px;
+
+
+    height:30px;
+
+
+    background:#00f5ff;
+
+
+    border-radius:10px;
+
+
+    box-shadow:
+
+    0 0 15px #00f5ff;
+
+
+    animation:
+
+    djBars .8s infinite alternate;
+
+
+}
+
+
+
+.dj-console span:nth-child(2){
+
+    animation-delay:.2s;
+
+}
+
+
+
+.dj-console span:nth-child(3){
+
+    animation-delay:.4s;
+
+}
+
+
+
+.dj-console span:nth-child(4){
+
+    animation-delay:.6s;
+
+}
+
+
+
+@keyframes djBars{
+
+
+    from{
+
+        height:15px;
+
+    }
+
+
+    to{
+
+        height:50px;
+
+    }
+
+}
+
+
+
+
+
+/* ===============================
+   DANCING SILHOUETTES
+================================ */
+
+
+.dancers{
+
+
+    position:absolute;
+
+
+    right:10%;
+
+
+    bottom:70px;
+
+
+    display:flex;
+
+
+    gap:25px;
+
+
+}
+
+
+
+.dancer{
+
+
+    width:35px;
+
+    height:120px;
+
+
+    background:
+
+    linear-gradient(
+    to bottom,
+    #00f5ff,
+    #8b5cff
+    );
+
+
+    border-radius:50px;
+
+
+    box-shadow:
+
+    0 0 25px #00f5ff;
+
+
+    animation:
+
+    danceMove 1s infinite alternate;
+
+
+}
+
+
+
+.dancer:nth-child(2){
+
+    height:150px;
+
+    animation-delay:.3s;
+
+}
+
+
+
+.dancer:nth-child(3){
+
+    height:100px;
+
+    animation-delay:.6s;
+
+}
+
+
+
+
+@keyframes danceMove{
+
+
+    from{
+
+        transform:
+
+        translateY(0)
+        rotate(-5deg);
+
+    }
+
+
+    to{
+
+        transform:
+
+        translateY(-40px)
+        rotate(5deg);
+
+    }
+
+}
+
+
+
+
+
+/* ===============================
+   AUDIO WAVES
+================================ */
+
+
+.sound-wave{
+
+
+    position:absolute;
+
+
+    bottom:200px;
+
+
+    width:400px;
+
+
+    height:80px;
+
+
+    border-radius:50%;
+
+
+    border:
+
+    2px solid #00f5ff55;
+
+
+    animation:
+
+    waveExpand 3s infinite;
+
+
+}
+
+
+
+@keyframes waveExpand{
+
+
+    50%{
+
+        transform:scale(1.4);
+
+        opacity:.2;
+
+    }
+
+}
+
+
+
+
+
+/* ===============================
+   FLOATING MUSIC PARTICLES
+================================ */
+
+
+.music-particle{
+
+
+    position:absolute;
+
+
+    width:8px;
+
+    height:8px;
+
+
+    background:#00f5ff;
+
+
+    border-radius:50%;
+
+
+    box-shadow:
+
+    0 0 20px #00f5ff;
+
+
+    animation:
+
+    particleFloat 6s infinite;
+
+
+}
+
+
+
+@keyframes particleFloat{
+
+
+    50%{
+
+        transform:
+
+        translateY(-150px);
+
+        opacity:0;
+
+    }
+
+}
+
+
+
+
+
+/* ===============================
+   MOBILE
+================================ */
+
+
+@media(max-width:900px){
+
+
+    .mic-stage,
+    .stage-speaker,
+    .dancers{
+
+        display:none;
+
+    }
+
+
+    .footer-content h2{
+
+        font-size:35px;
+
+    }
+
+
+}
+
+/* =====================================
+   MODERN AI SAAS FOOTER TEMPLATE
+===================================== */
+
+
+.modern-footer{
+
+    background:
+    linear-gradient(
+    180deg,
+    #050510,
+    #080820
+    );
+
+    padding:80px 8% 30px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-top:1px solid rgba(255,255,255,.1);
+
+}
+
+
+
+.modern-footer::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+
+    height:500px;
+
+    top:-250px;
+
+    right:20%;
+
+
+    background:
+
+    radial-gradient(
+    circle,
+    #00f5ff55,
+    transparent 70%
+    );
+
+
+    filter:blur(40px);
+
+}
+
+
+
+.footer-wrapper{
+
+    display:grid;
+
+    grid-template-columns:
+    2fr 1fr 1fr 1.5fr;
+
+    gap:50px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+
+.footer-section{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+
+.footer-section p{
+
+    color:#aaa;
+
+    line-height:1.7;
+
+}
+
+
+
+.footer-section h3{
+
+    color:white;
+
+    font-size:18px;
+
+}
+
+
+
+.footer-section a{
+
+    text-decoration:none;
+
+    color:#999;
+
+    transition:.3s;
+
+}
+
+
+
+.footer-section a:hover{
+
+    color:#00f5ff;
+
+    transform:translateX(5px);
+
+}
+
+
+
+.brand .logo{
+
+    margin-bottom:15px;
+
+}
+
+
+
+.footer-social{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+
+
+.footer-social a{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    border-radius:50%;
+
+
+    background:
+
+    rgba(255,255,255,.08);
+
+
+    border:
+
+    1px solid rgba(255,255,255,.15);
+
+
+    color:white;
+
+
+}
+
+
+
+.footer-social a:hover{
+
+    box-shadow:
+
+    0 0 20px #00f5ff;
+
+    color:#00f5ff;
+
+}
+
+
+
+.footer-input{
+
+    display:flex;
+
+    margin-top:15px;
+
+}
+
+
+
+.footer-input input{
+
+    width:180px;
+
+    padding:13px 15px;
+
+    border:none;
+
+    outline:none;
+
+
+    color:white;
+
+
+    background:
+
+    rgba(255,255,255,.1);
+
+
+    border-radius:
+
+    25px 0 0 25px;
+
+}
+
+
+
+.footer-input button{
+
+    width:50px;
+
+    border:none;
+
+    cursor:pointer;
+
+
+    color:white;
+
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #00f5ff,
+    #8b5cff
+    );
+
+
+    border-radius:
+
+    0 25px 25px 0;
+
+}
+
+
+
+.footer-line{
+
+    height:1px;
+
+    background:
+
+    rgba(255,255,255,.1);
+
+
+    margin:50px 0 25px;
+
+}
+
+
+
+.footer-bottom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#777;
+
+    font-size:14px;
+
+}
+
+
+
+.footer-bottom a{
+
+    color:#999;
+
+    margin-left:20px;
+
+    text-decoration:none;
+
+}
+
+
+
+.footer-bottom a:hover{
+
+    color:#00f5ff;
+
+}
+
+
+
+@media(max-width:900px){
+
+
+.footer-wrapper{
+
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+}
+
+
+.footer-social{
+
+    justify-content:center;
+
+}
+
+
+.footer-bottom{
+
+    flex-direction:column;
+
+    gap:20px;
+
+    text-align:center;
+
+}
+
+}

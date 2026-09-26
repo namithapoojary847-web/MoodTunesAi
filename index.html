@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MoodTunes AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+
+<!-- ===================================================
+        PREMIUM AURORA BACKGROUND
+=================================================== -->
+
+<div class="aurora-bg">
+
+    <div class="gradient gradient-1"></div>
+    <div class="gradient gradient-2"></div>
+    <div class="gradient gradient-3"></div>
+
+    <div class="grid-overlay"></div>
+
+</div>
+
+<div class="particles">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+<div class="music-notes-bg">
+
+    <span>🎵</span>
+    <span>🎶</span>
+    <span>🎧</span>
+    <span>🎼</span>
+
+</div>
+
+<div class="app-container">
+
+<!-- ===================================================
+                FLOATING NAVIGATION
+=================================================== -->
+
+<nav class="top-nav">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+
+            🎵
+
+        </div>
+
+        <div>
+
+            <h2>MoodTunes</h2>
+
+            <span>AI Music</span>
+
+        </div>
+
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+
+            <a href="/">
+
+                Home
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="#camera-section">
+
+                AI Scan
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="#recommendation-section">
+
+                Discover
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="#player-section">
+
+                Player
+
+            </a>
+
+        </li>
+
+    </ul>
+
+    <div class="nav-actions">
+
+        <button
+            class="glass-btn"
+            id="btnThemeToggle">
+
+            🌙
+
+        </button>
+
+        <button
+    class="glass-btn"
+    id="btnOpenAuth">
+
+    Login
+
+</button>
+
+        <button
+            class="glass-btn"
+            id="btnLogout"
+            style="display:none">
+
+            Logout
+
+        </button>
+
+        <div
+            class="profile-chip">
+
+            <div
+                class="profile-avatar"
+                id="sidebarAvatar">
+
+                👤
+
+            </div>
+
+            <span
+                id="sidebarUserName">
+
+                Guest User
+
+            </span>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- ===================================================
+                    PREMIUM HERO
+=================================================== -->
+
+<main class="main-content">
+
+<section class="hero">
+
+<div class="hero-left">
+
+    <h2 class="welcome-title">
+        Welcome,
+        <span id="heroUserName">Guest</span> 👋
+    </h2>
+
+    <p class="welcome-subtitle">
+        How are you feeling today?
+    </p>
+
+    <!-- Emotion Cards -->
+<div class="emotion-slider">
+
+    <div class="emotion-card happy">
+        <div class="overlay"></div>
+        <h3>Happy</h3>
+    </div>
+
+    <div class="emotion-card sad">
+        <div class="overlay"></div>
+        <h3>Sad</h3>
+    </div>
+
+    <div class="emotion-card calm">
+        <div class="overlay"></div>
+        <h3>Calm</h3>
+    </div>
+
+    <div class="emotion-card romantic">
+        <div class="overlay"></div>
+        <h3>Romantic</h3>
+    </div>
+
+    <div class="emotion-card energetic">
+        <div class="overlay"></div>
+        <h3>Energetic</h3>
+    </div>
+
+    <div class="emotion-card relaxed">
+        <div class="overlay"></div>
+        <h3>Relaxed</h3>
+    </div>
+
+    <div class="emotion-card angry">
+        <div class="overlay"></div>
+        <h3>Angry</h3>
+    </div>
+
+</div>
+<div class="typing-text">
+    <span id="animatedText">
+        🎧 Find music that matches your mood, instantly.
+    </span>
+</div>
+
+   <div class="camera-section-modern">
+
+    <div class="camera-content">
+
+        <h3>
+            <i class="fas fa-camera"></i>
+            AI Emotion Detection
+        </h3>
+
+        <p>
+            Discover music through your expressions.
+        </p>
+
+        <button class="camera-btn-modern" id="btnStartWebcamHero">
+            Open Camera
+            <i class="fas fa-arrow-right"></i>
+        </button>
+
+    </div>
+    
+
+</div>
+<h3 class="mood-title">Choose Your Mood</h3>
+
+<div class="mood-buttons">
+
+    <button class="mood-btn" data-mood="happy">😊</button>
+
+    <button class="mood-btn" data-mood="sad">😢</button>
+
+    <button class="mood-btn" data-mood="calm">😌</button>
+
+    <button class="mood-btn" data-mood="romantic">❤️</button>
+
+    <button class="mood-btn" data-mood="energetic">⚡</button>
+
+    <button class="mood-btn" data-mood="relaxed">🌿</button>
+
+    <button class="mood-btn" data-mood="angry">😡</button>
+
+</div>
+
+</div>
+
+    
+
+<!-- ===================================================
+            PREMIUM DASHBOARD GRID
+=================================================== -->
+
+<div class="dashboard-grid">
+
+
+        
+
+
+<!-- ==========================================
+        RECOMMENDATION SECTION
+========================================== -->
+
+<section
+class="recommendation-wrapper"
+id="recommendation-section">
+
+<!-- PLAYER -->
+
+    <div class="player-container" id="player-section">
+
+        <div class="album-art">
+
+            <img
+                id="nowPlayingArt"
+                src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=500"
+                alt="Album Art">
+
+        </div>
+
+
+
+        <div class="player-info">
+
+            <span class="playing-now">
+
+                NOW PLAYING
+
+            </span>
+
+            <h2 id="nowPlayingTitle">
+
+                Select a Song
+
+            </h2>
+
+            <p id="nowPlayingArtist">
+
+                MoodTunes AI
+
+            </p>
+
+
+
+            <audio
+                id="html5AudioPlayer"
+                preload="auto">
+            </audio>
+
+
+
+            <div class="player-controls">
+
+                <button
+                    class="btn-play"
+                    id="btnPlayPauseAudio">
+
+                    ▶
+
+                </button>
+
+
+
+                <div class="progress-area">
+
+                    <input
+
+                        type="range"
+
+                        id="audioSeekSlider"
+
+                        value="0"
+
+                        min="0"
+
+                        max="100">
+
+                    <div class="time-row">
+
+                        <span id="audioCurrentTime">
+
+                            0:00
+
+                        </span>
+
+                        <span id="audioTotalDuration">
+
+                            0:00
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <a
+
+                    id="youtubeDirectBtn"
+
+                    target="_blank"
+
+                    class="btn-secondary">
+
+                    ▶ YouTube
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="section-title">
+
+        <h2>
+
+            🎵 Recommended For You
+
+        </h2>
+
+        <p>
+
+            AI-curated songs based on your
+            current emotion.
+
+        </p>
+
+    </div>
+
+    <!-- ==========================================
+        RECOMMENDED MUSIC
+========================================== -->
+
+<section class="recommendation-wrapper">
+
+    <div class="recommendation-header">
+
+        <div>
+
+            <h2>
+                🎵 Recommended Songs
+            </h2>
+
+            <p id="moodDesc">
+
+                Music specially selected for your
+                current emotion.
+
+            </p>
+
+        </div>
+
+        <div
+            id="genreTag"
+            class="genre-pill">
+
+            Chill Playlist
+
+        </div>
+
+    </div>
+
+
+
+    
+
+
+    <!-- TRACK LIST -->
+
+    <div
+
+        class="track-list"
+
+        id="trackList">
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+        PREMIUM FOOTER
+========================================== -->
+
+<footer class="dashboard-footer">
+
+    <p>
+
+        🎵 MoodTunes AI • Music That Understands You
+
+    </p>
+
+</footer>
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+    const sidebarName=document.getElementById("sidebarUserName");
+    const heroName=document.getElementById("heroUserName");
+
+    const savedName=localStorage.getItem("username");
+
+    if(savedName){
+
+        sidebarName.textContent=savedName;
+        heroName.textContent=savedName;
+
+    }
+
+});
+
+</script>
+<!-- ==============================
+        AUTH MODAL
+============================== -->
+
+<div id="authModalOverlay" class="auth-modal">
+
+    <div class="auth-box">
+
+        <button id="btnCloseAuthModal" class="close-btn">
+            ✖
+        </button>
+
+
+        <div class="auth-tabs">
+
+            <button id="tabLogin" class="active">
+                Login
+            </button>
+
+            <button id="tabRegister">
+                Register
+            </button>
+
+        </div>
+
+
+        <!-- LOGIN FORM -->
+
+        <form id="formLogin">
+
+            <h2>Welcome Back</h2>
+
+
+            <input
+                type="text"
+                id="loginIdentifier"
+                placeholder="Username or Email"
+                required>
+
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+                required>
+
+
+            <button type="submit">
+                Login
+            </button>
+
+
+        </form>
+
+
+
+        <!-- REGISTER FORM -->
+
+        <form id="formRegister" style="display:none;">
+
+            <h2>Create Account</h2>
+
+
+            <input
+                type="text"
+                id="regUsername"
+                placeholder="Username"
+                required>
+
+
+            <input
+                type="email"
+                id="regEmail"
+                placeholder="Email"
+                required>
+
+
+            <input
+                type="password"
+                id="regPassword"
+                placeholder="Password"
+                required>
+
+
+            <button type="submit">
+                Register
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+</div>
+<!-- ==========================================
+        JAVASCRIPT
+========================================== -->
+
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/player.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/webcam.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/mood.js') }}"></script>
+</body>
+
+</html>

@@ -13,6 +13,7 @@ User accounts — register/login with hashed passwords, session-based auth.
 Favourites — save tracks per user, view them later on a dedicated page.
 Mood analytics dashboard — pie chart of mood distribution, weekly trend chart, and a history table, powered by Chart.js.
 Guest mode — mood detection and recommendations work without an account; favourites require login.
+
 🛠️ Tech Stack
 Layer	Tech
 Backend	Python, Flask, Flask-CORS
@@ -22,6 +23,7 @@ Database	SQLite (moodtunes.db)
 Frontend	HTML5, CSS3, vanilla JavaScript
 Charts	Chart.js
 Fonts / Icons	Google Fonts, Font Awesome
+
 📁 Project Structure
 Project/
 ├── app.py                   # App entry point, routes, blueprint registration
@@ -51,6 +53,7 @@ Project/
         ├── mood.js
         ├── analytics.js
         └── welcome.js
+        
 🚀 Getting Started
 1. Clone / open the project folder
 
